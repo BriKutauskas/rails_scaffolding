@@ -1,0 +1,47 @@
+<%= form_with(model: sighting, local: true) do |form| %>
+  <% if sighting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sighting.errors.count, "error") %> prohibited this sighting from being saved:</h2>
+
+      <ul>
+      <% sighting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date, id: :sighting_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :time %>
+    <%= form.time_select :time, id: :sighting_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude, id: :sighting_latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude, id: :sighting_longitude %>
+  </div>
+
+  <div class="field">
+      <%= form.label :region %>
+      <%= select(:sighting, :region, @region_for_select) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :animal_id %>
+    <%= select(:sighting, :animal_id, @animals_for_select) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
