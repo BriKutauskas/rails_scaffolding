@@ -54,10 +54,16 @@ class AnimalsController < ApplicationController
   # DELETE /animals/1
   # DELETE /animals/1.json
   def destroy
-    @animal.destroy
-    respond_to do |format|
-      format.html { redirect_to animals_url, notice: 'Animal was successfully destroyed.' }
-      format.json { head :no_content }
+    if @animal.sightings == []
+      @animal.destroy
+      respond_to do |format|
+        format.html { redirect_to animals_url, notice: 'Animal was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      @animals = Animal.all
+      flash.now[:notice] = "Animal cannot be deleted! Sightings of this animal are stored."
+      render 'animals/index.html.erb'
     end
   end
 

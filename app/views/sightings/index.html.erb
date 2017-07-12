@@ -1,3 +1,6 @@
+<div class="content">
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Sightings</h1>
@@ -36,6 +39,9 @@
 
 <%= link_to 'New Sighting', new_sighting_path %>
 
+
+<%= link_to 'Animals', animals_path %>
+
 <br>
 <br>
 
@@ -44,13 +50,21 @@
 <form action="/sightings" method="get">
   <label for="start_date">Start date</label>
   <input id="start_date" name="start_date" type="date">
+  <br>
+  <br>
   <label for="end_date">End date</label>
   <input id="end_date" name="end_date" type="date">
+  <br>
+  <br>
   <select id="region" name="region">
     <option value="North">North</option>
     <option value="South">South</option>
     <option value="East">East</option>
     <option value="West">West</option>
   </select>
+  <br>
+  <br>
   <button>Run report</button>
 </form>
+
+</div>

@@ -1,6 +1,9 @@
+
+<div class="content">
+
 <p id="notice"><%= notice %></p>
 
-<h1>Animals</h1>
+<h1>Animal Tracker</h1>
 
 <table>
   <thead>
@@ -29,3 +32,11 @@
 <br>
 
 <%= link_to 'New Animal', new_animal_path %>
+<%= link_to 'Sightings', sightings_path %>
+</div>
+
+
+
+<%= image_tag("zebra.png", :alt => "zebra", :class => "animal", :id => "zebra") %>
+<%= image_tag("penguin.png", :alt => "zebra", :class => "animal", :id => "penguin") %>
+<%= image_tag("turtle.png", :alt => "zebra", :class => "animal", :id => "turtle") %>

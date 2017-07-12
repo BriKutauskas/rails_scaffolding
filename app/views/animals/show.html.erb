@@ -1,3 +1,5 @@
+<div class="content">
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -16,11 +18,14 @@
 </p>
 
 <p>
-  <ul>
+  <strong>Sightings:</strong>
+  
     <%= render partial: "sighting", collection: @animal.sightings %>
-  </ul>
+
 </p>
 
 <%= link_to 'New Sighting', new_sighting_path(:animal => @animal.id)%>
 <%= link_to 'Edit', edit_animal_path(@animal) %> |
 <%= link_to 'Back', animals_path %>
+
+</div>
