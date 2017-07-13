@@ -84,5 +84,5 @@ $("document").ready(function() {
   function add_to_sighting_list(data) {
   $("#sighting_list").append(
     '<li><a href="' + '/sightings/' + data.id + '">' +
-    data.time + data.date + "</a></li>");
+    new Date(data.time).toLocaleTimeString() + " " + data.date + "</a></li>");
 }
