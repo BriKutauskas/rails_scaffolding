@@ -19,9 +19,9 @@
 
 <p>
   <strong>Sightings:</strong>
-  
+  <ul id="sighting_list">
     <%= render partial: "sighting", collection: @animal.sightings %>
-
+  </ul>
 </p>
 
 <%= link_to 'New Sighting', new_sighting_path(:animal => @animal.id)%>
@@ -29,3 +29,35 @@
 <%= link_to 'Back', animals_path %>
 
 </div>
+
+<h3>Add new sighting:</h3>
+
+<p>
+  <div class="field">
+    <label for="sighting_date">Date</label>
+    <input id="sighting_date" name="sighting[date]" type="date">
+  </div>
+  <div class="field">
+    <label for="sighting_time">Time</label>
+    <input id="sighting_time" name="sighting[time]" type="time">
+  </div>
+  <div class="field">
+    <label for="sighting_latitude">Latitude</label>
+    <input type="text" name="sighting[latitude]" id="sighting_latitude" />
+  </div>
+  <div class="field">
+    <label for="sighting_longitude">Longitude</label>
+    <input type="text" name="sighting[longitude]" id="sighting_longitude" />
+  </div>
+  <div class="field">
+    <label for="sighting_region">Region</label>
+    <select id="sighting_region" name="sighting[region]">
+      <option value="North">North</option>
+      <option value="South">South</option>
+      <option value="East">East</option>
+      <option value="West">West</option>
+    </select>
+  </div>
+  <input type="hidden" name="sighting[animal_id]" id="animal_id" value="<%=@animal.id%>"/>
+  <button id="add_new_sighting_button">Add New Sighting</button>
+</p>

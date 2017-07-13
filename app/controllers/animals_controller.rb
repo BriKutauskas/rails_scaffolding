@@ -59,6 +59,7 @@ class AnimalsController < ApplicationController
       respond_to do |format|
         format.html { redirect_to animals_url, notice: 'Animal was successfully destroyed.' }
         format.json { head :no_content }
+        
       end
     else
       @animals = Animal.all
@@ -67,7 +68,7 @@ class AnimalsController < ApplicationController
     end
   end
 
-  private
+private
     # Use callbacks to share common setup or constraints between actions.
     def set_animal
       @animal = Animal.find(params[:id])

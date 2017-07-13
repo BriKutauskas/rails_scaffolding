@@ -21,7 +21,7 @@
   <tbody>
     <% @sightings.each do |sighting| %>
       <tr>
-        <td><%= sighting.date %></td>
+        <td><%= sighting.date.strftime("%m/%d/%y") %></td>
         <td><%= sighting.time.strftime("%H:%M") %></td>
         <td><%= sighting.latitude %></td>
         <td><%= sighting.longitude %></td>

@@ -1,3 +1,3 @@
 <li>
-  <%= link_to sighting.time.strftime("%H:%M").to_s + " " + sighting.date.to_s, sighting %>
+  <%= link_to sighting.time.strftime("%H:%M").to_s + " " + sighting.date.strftime("%m/%d/%y").to_s, sighting %>
 </li>

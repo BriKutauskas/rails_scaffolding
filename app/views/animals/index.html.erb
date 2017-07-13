@@ -15,15 +15,15 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody id="animal_list">
     <% @animals.each do |animal| %>
-      <tr>
+      <tr >
         <td><%= animal.common_name %></td>
         <td><%= animal.latin_name %></td>
         <td><%= animal.kingdom %></td>
         <td><%= link_to 'Show', animal %></td>
         <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
-        <td><%= link_to 'Destroy', animal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', animal, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %></td>
       </tr>
     <% end %>
   </tbody>
@@ -35,6 +35,25 @@
 <%= link_to 'Sightings', sightings_path %>
 </div>
 
+
+<p>
+  <div class="field">
+    <label for="animal_common_name">Common Name</label><br>
+    <input type="text" name="animal[common_name]" id="animal_common_name" />
+  </div>
+
+  <div class="field">
+    <label for="animal_latin_name">Latin Name</label><br>
+    <input type="text" name="animal[latin_name]" id="animal_latin_name" />
+  </div>
+
+  <div class="field">
+    <label for="animal_kingdom">Animal Kingdom</label><br>
+    <input type="text" name="animal[kingdom]" id="animal_kingdom" />
+  </div>
+
+  <button id="add_new_animal_button">Add New Animal</button>
+</p>
 
 
 <%= image_tag("zebra.png", :alt => "zebra", :class => "animal", :id => "zebra") %>
