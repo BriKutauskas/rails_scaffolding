@@ -1,6 +1,14 @@
 class SightingsController < ApplicationController
   before_action :set_sighting, only: [:show, :edit, :update, :destroy]
 
+  def get_events
+    @sightings = Sighting.all
+    events = []
+    @sightings.each do |sighting|
+      events << { title: sighting.animal.common_name, start: sighting.date.to_s + " " + sighting.time.strftime("%H:%M:%S"), url: Rails.application.routes.url_helpers.sighting_path(sighting.id) }
+    end
+    render :json => events.to_json
+  end
   # GET /sightings
   # GET /sightings.json
   def index
@@ -84,6 +92,8 @@ class SightingsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
